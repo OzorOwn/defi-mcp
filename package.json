@@ -1,0 +1,29 @@
+{
+  "name": "defi-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing DeFi/crypto primitives to AI agents — prices, wallets, gas, DEX quotes",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "defi-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --testPathPattern=tests/",
+    "test:api": "node tests/api_check.js"
+  },
+  "keywords": ["mcp", "defi", "crypto", "blockchain", "ai-agent", "web3"],
+  "author": "Clawdia",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
