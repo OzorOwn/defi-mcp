@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeFi MCP Server — 12 Crypto Tools for AI Agents</title>
+<meta name="description" content="REST API + MCP protocol server with 12 DeFi tools: token prices, wallet balances, gas prices, DEX quotes. Built for AI agents.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#060608;--card:rgba(255,255,255,.04);--border:rgba(255,255,255,.08);--text:#e0e0e0;--muted:#888;--accent:#f59e0b;--accent2:#ec4899;--glow:rgba(245,158,11,.1)}
+body{font-family:'SF Mono',Monaco,Consolas,'Liberation Mono',monospace;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+.hero{padding:90px 0 50px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:700px;height:450px;background:radial-gradient(ellipse,var(--glow),transparent 70%);pointer-events:none}
+.badge{display:inline-block;padding:6px 16px;border:1px solid var(--accent);border-radius:20px;font-size:.72rem;color:var(--accent);margin-bottom:18px;letter-spacing:1px;text-transform:uppercase}
+h1{font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:14px}
+h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:1rem;color:var(--muted);max-width:600px;margin:0 auto 28px}
+.hero-stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:1.7rem;font-weight:700;color:var(--accent)}
+.hero-stat .label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:28px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;backdrop-filter:blur(10px)}
+.card h3{font-size:.9rem;margin-bottom:5px;color:#fff}
+.card p{color:var(--muted);font-size:.8rem}
+
+section{padding:44px 0}
+section h2{font-size:1.3rem;font-weight:700;margin-bottom:18px;color:#fff}
+.section-label{font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:8px}
+
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px}
+.tool{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--card);border:1px solid var(--border);border-radius:6px;font-size:.8rem}
+.tool .name{color:var(--accent);font-weight:600;min-width:140px}
+.tool .desc{color:var(--muted)}
+
+pre{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:8px;padding:14px;overflow-x:auto;font-size:.76rem;line-height:1.5;color:#ccc}
+pre .c{color:#555}
+pre .s{color:var(--accent)}
+
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto}
+.pricing .card{text-align:center}
+.pricing .card .price{font-size:1.8rem;font-weight:700;margin:8px 0}
+.pricing .card .price.free{color:var(--accent)}
+.pricing .card .price.pro{color:var(--accent2)}
+.pricing .card ul{list-style:none;text-align:left;font-size:.8rem;color:var(--muted)}
+.pricing .card ul li{padding:3px 0}
+.pricing .card ul li::before{content:'→ ';color:var(--accent)}
+
+footer{padding:32px 0;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.76rem}
+footer a{color:var(--accent)}
+
+@media(max-width:600px){h1{font-size:2rem}.hero-stats{gap:20px}.pricing{grid-template-columns:1fr}.tool .desc{display:none}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<section class="hero">
+  <div class="badge">REST + Model Context Protocol</div>
+  <h1><span>DeFi MCP</span> Server</h1>
+  <p class="subtitle">12 crypto/DeFi tools for AI agents. Token prices, wallet balances, gas oracle, DEX quotes — via REST API or native MCP protocol.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">12</div><div class="label">Tools</div></div>
+    <div class="hero-stat"><div class="num">6</div><div class="label">Chains</div></div>
+    <div class="hero-stat"><div class="num">MCP</div><div class="label">Native</div></div>
+    <div class="hero-stat"><div class="num">REST</div><div class="label">API</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Tools</div>
+  <h2>12 DeFi Primitives</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Token Prices</h3>
+      <p>CoinGecko-powered. Current prices, 24h change, market cap, volume. Search by name or symbol. Top tokens.</p>
+    </div>
+    <div class="card">
+      <h3>Wallet Intel</h3>
+      <p>ETH balance, ERC-20 balances, token holdings history. Multi-chain balance across 6 EVM networks.</p>
+    </div>
+    <div class="card">
+      <h3>Gas Oracle</h3>
+      <p>Real-time gas prices with EIP-1559 breakdowns (slow/normal/fast). Multi-chain: ETH, BSC, Polygon, Arbitrum, Optimism, Base.</p>
+    </div>
+    <div class="card">
+      <h3>DEX Quotes</h3>
+      <p>Swap quotes from 1inch (all EVM chains) and Jupiter (Solana). Best routes, output amounts, slippage.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">All Tools</div>
+  <h2>Tool Reference</h2>
+  <div class="tool-grid">
+    <div class="tool"><span class="name">get_token_price</span><span class="desc">Prices for 1+ tokens</span></div>
+    <div class="tool"><span class="name">search_tokens</span><span class="desc">Search by name/symbol</span></div>
+    <div class="tool"><span class="name">get_token_info</span><span class="desc">Full token metadata</span></div>
+    <div class="tool"><span class="name">get_top_tokens</span><span class="desc">Top N by market cap</span></div>
+    <div class="tool"><span class="name">get_eth_balance</span><span class="desc">ETH wallet balance</span></div>
+    <div class="tool"><span class="name">get_token_balance</span><span class="desc">ERC-20 balance</span></div>
+    <div class="tool"><span class="name">get_wallet_holdings</span><span class="desc">All token holdings</span></div>
+    <div class="tool"><span class="name">get_multichain_balance</span><span class="desc">Balance on 6 chains</span></div>
+    <div class="tool"><span class="name">get_eth_gas</span><span class="desc">ETH gas (EIP-1559)</span></div>
+    <div class="tool"><span class="name">get_multichain_gas</span><span class="desc">Gas on 6 chains</span></div>
+    <div class="tool"><span class="name">get_dex_quote_eth</span><span class="desc">1inch EVM quote</span></div>
+    <div class="tool"><span class="name">get_dex_quote_sol</span><span class="desc">Jupiter SOL quote</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Quick Start</div>
+  <h2>Try It Now</h2>
+  <pre><span class="c"># Universal tool call (MCP-style)</span>
+curl -X POST http://defi-mcp.127.0.0.1.nip.io/api/call \
+  -H "Content-Type: application/json" \
+  -d <span class="s">'{"tool":"get_token_price","args":{"ids":["bitcoin","ethereum"]}}'</span>
+
+<span class="c"># REST shortcuts</span>
+curl http://defi-mcp.127.0.0.1.nip.io/api/prices?ids=bitcoin,ethereum
+curl http://defi-mcp.127.0.0.1.nip.io/api/search/pepe
+curl http://defi-mcp.127.0.0.1.nip.io/api/gas/all
+curl http://defi-mcp.127.0.0.1.nip.io/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi
+curl http://defi-mcp.127.0.0.1.nip.io/api/top?limit=10
+
+<span class="c"># Python</span>
+import requests
+r = requests.post(<span class="s">"http://defi-mcp.127.0.0.1.nip.io/api/call"</span>,
+  json={"tool": "get_multichain_gas", "args": {}})
+print(r.json())</pre>
+</section>
+
+<section>
+  <div class="section-label">Pricing</div>
+  <h2>Simple, Pay-Per-Use</h2>
+  <div class="pricing">
+    <div class="card">
+      <h3>Free Tier</h3>
+      <div class="price free">$0</div>
+      <ul>
+        <li>100 requests per day</li>
+        <li>All 12 tools</li>
+        <li>No API key needed</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <div class="price pro">USDC</div>
+      <ul>
+        <li>500 credits per USDC</li>
+        <li>Unlimited requests</li>
+        <li>Pay with USDC on Base</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>Built by Clawdia &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/.well-known/agent.json">agent.json</a> &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/llms.txt">llms.txt</a> &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/health">health</a></p>
+</footer>
+</body>
+</html>
