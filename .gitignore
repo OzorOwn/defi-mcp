@@ -1,4 +1,11 @@
 node_modules/
 .env
+.env.*
+*.pem
+*.key
 *.log
 .DS_Store
+data/*.db
+data/*.db-*
+.vercel/
+__pycache__/

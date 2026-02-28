@@ -12,13 +12,26 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --testPathPattern=tests/",
     "test:api": "node tests/api_check.js"
   },
-  "keywords": ["mcp", "defi", "crypto", "blockchain", "ai-agent", "web3"],
+  "keywords": [
+    "mcp",
+    "defi",
+    "crypto",
+    "blockchain",
+    "ai-agent",
+    "web3"
+  ],
   "author": "Clawdia",
   "license": "MIT",
   "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/static": "^9.0.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "node-fetch": "^3.3.2",
-    "dotenv": "^16.4.5"
+    "better-sqlite3": "^12.6.2",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.16.0",
+    "fastify": "^5.7.4",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "jest": "^29.7.0"
