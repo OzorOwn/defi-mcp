@@ -1,0 +1,330 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DeFi MCP Server",
+    "version": "1.0.0",
+    "description": "Model Context Protocol server for crypto/DeFi primitives — prices, balances, gas, swap quotes",
+    "contact": {
+      "name": "DeFi MCP Server",
+      "url": "http://defi-mcp.127.0.0.1.nip.io"
+    },
+    "license": {
+      "name": "Proprietary"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://defi-mcp.127.0.0.1.nip.io",
+      "description": "Production API"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "service": {
+            "type": "string"
+          },
+          "uptime": {
+            "type": "number"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentInfo": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "example": "USDC on Base"
+          },
+          "wallet": {
+            "type": "string"
+          },
+          "credits_per_usdc": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "operationId": "healthCheck",
+        "tags": [
+          "System"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Service healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent.json": {
+      "get": {
+        "summary": "Agent discovery metadata",
+        "operationId": "agentJson",
+        "tags": [
+          "System"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Agent manifest",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLM-readable documentation",
+        "operationId": "llmsTxt",
+        "tags": [
+          "System"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Plain text API docs",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/price": {
+      "get": {
+        "summary": "Get token price",
+        "operationId": "get_token_price",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "CoinGecko IDs"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/search": {
+      "get": {
+        "summary": "Search tokens",
+        "operationId": "search_tokens",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/token/{id}": {
+      "get": {
+        "summary": "Token metadata",
+        "operationId": "token_metadata",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/top": {
+      "get": {
+        "summary": "Top tokens by market cap",
+        "operationId": "top_tokens_by_market_cap",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/balance/{address}": {
+      "get": {
+        "summary": "ETH balance",
+        "operationId": "eth_balance",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gas": {
+      "get": {
+        "summary": "Gas prices",
+        "operationId": "gas_prices",
+        "tags": [
+          "API"
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

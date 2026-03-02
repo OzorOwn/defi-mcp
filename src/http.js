@@ -18,6 +18,7 @@ import { getTokenPrices, searchTokens, getTokenInfo, getTopTokens } from './tool
 import { getEthGasPrices, getMultiChainGasPrices } from './tools/gas.js';
 import { getEthBalance, getTokenBalance, getWalletTokenHoldings, getMultiChainBalance } from './tools/wallets.js';
 import { get1inchQuote, getJupiterQuote, COMMON_TOKENS } from './tools/dex.js';
+import requestLogger from '/root/clawdia-workspace/shared/request-logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -121,6 +122,7 @@ async function authMiddleware(request, reply) {
 const app = Fastify({ logger: true });
 await app.register(cors, { origin: '*' });
 await app.register(rateLimit, { max: 100, timeWindow: '1 minute' });
+await app.register(requestLogger, { serviceName: 'defi-mcp' });
 await app.register(fastifyStatic, { root: join(__dirname, '..', 'public'), prefix: '/' });
 app.addHook('onRequest', authMiddleware);
 
@@ -347,7 +349,7 @@ Send USDC on Base to the wallet address from /api/payments/info.
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 
-app.listen({ port: PORT, host: '0.0.0.0' }, (err) => {
+app.listen({ port: PORT, host: '127.0.0.1' }, (err) => {
   if (err) { app.log.error(err); process.exit(1); }
   app.log.info(`DeFi MCP HTTP Server running on port ${PORT}`);
 });

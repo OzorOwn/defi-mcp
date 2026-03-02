@@ -34,6 +34,7 @@ import { getTokenPrices, searchTokens, getTokenInfo, getTopTokens } from './tool
 import { getEthGasPrices, getMultiChainGasPrices } from './tools/gas.js';
 import { getEthBalance, getTokenBalance, getWalletTokenHoldings, getMultiChainBalance } from './tools/wallets.js';
 import { get1inchQuote, getJupiterQuote, COMMON_TOKENS } from './tools/dex.js';
+// OpenAPI spec available at defi-mcp/public/openapi.json (MCP server — no HTTP routes)
 
 // ─── Tool definitions ────────────────────────────────────────────────────────
 

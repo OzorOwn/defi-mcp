@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: http://defi-mcp.127.0.0.1.nip.io/sitemap.xml
