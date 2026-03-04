@@ -6,10 +6,10 @@
 <title>DeFi MCP Server — 12 Crypto Tools for AI Agents</title>
 <meta name="keywords" content="MCP server, DeFi tools, model context protocol, Claude AI, crypto API, AI agents, DEX aggregator, DeFi automation">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="http://defi-mcp.127.0.0.1.nip.io">
+<link rel="canonical" href="http://defi-mcp.your-server.example.com">
 <meta property="og:title" content="DeFi MCP Server — 12 Crypto Tools for AI Agents">
 <meta property="og:description" content="REST API + MCP protocol server with 12 DeFi tools: token prices, wallet balances, gas prices, DEX quotes. Built for AI agents.">
-<meta property="og:url" content="http://defi-mcp.127.0.0.1.nip.io">
+<meta property="og:url" content="http://defi-mcp.your-server.example.com">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DeFi MCP Server">
 <meta name="twitter:card" content="summary">
@@ -129,20 +129,20 @@ footer a{color:var(--accent)}
   <div class="section-label">Quick Start</div>
   <h2>Try It Now</h2>
   <pre><span class="c"># Universal tool call (MCP-style)</span>
-curl -X POST http://defi-mcp.127.0.0.1.nip.io/api/call \
+curl -X POST http://defi-mcp.your-server.example.com/api/call \
   -H "Content-Type: application/json" \
   -d <span class="s">'{"tool":"get_token_price","args":{"ids":["bitcoin","ethereum"]}}'</span>
 
 <span class="c"># REST shortcuts</span>
-curl http://defi-mcp.127.0.0.1.nip.io/api/prices?ids=bitcoin,ethereum
-curl http://defi-mcp.127.0.0.1.nip.io/api/search/pepe
-curl http://defi-mcp.127.0.0.1.nip.io/api/gas/all
-curl http://defi-mcp.127.0.0.1.nip.io/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi
-curl http://defi-mcp.127.0.0.1.nip.io/api/top?limit=10
+curl http://defi-mcp.your-server.example.com/api/prices?ids=bitcoin,ethereum
+curl http://defi-mcp.your-server.example.com/api/search/pepe
+curl http://defi-mcp.your-server.example.com/api/gas/all
+curl http://defi-mcp.your-server.example.com/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi
+curl http://defi-mcp.your-server.example.com/api/top?limit=10
 
 <span class="c"># Python</span>
 import requests
-r = requests.post(<span class="s">"http://defi-mcp.127.0.0.1.nip.io/api/call"</span>,
+r = requests.post(<span class="s">"http://defi-mcp.your-server.example.com/api/call"</span>,
   json={"tool": "get_multichain_gas", "args": {}})
 print(r.json())</pre>
 </section>

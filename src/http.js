@@ -274,7 +274,7 @@ app.get('/.well-known/agent.json', async (req, reply) => {
   return {
     name: 'DeFi MCP Server',
     description: '12 crypto/DeFi tools for AI agents — prices, wallets, gas, DEX quotes. REST + MCP protocol.',
-    url: 'http://defi-mcp.127.0.0.1.nip.io',
+    url: 'http://defi-mcp.your-server.example.com',
     version: '0.1.0',
     authentication: { type: 'bearer', description: 'Optional — free tier: 100 req/day' },
     payment: { method: 'USDC', chain: 'base', address: process.env.BALL_WALLET_ADDRESS || '' },
@@ -302,7 +302,7 @@ app.get('/llms.txt', async (req, reply) => {
 > 12 crypto/DeFi tools for AI agents — prices, wallets, gas, DEX quotes via REST + MCP.
 
 ## Base URL
-http://defi-mcp.127.0.0.1.nip.io
+http://defi-mcp.your-server.example.com
 
 ## Authentication
 Bearer token in Authorization header. Optional — free tier: 100 req/day by IP.

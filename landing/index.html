@@ -118,20 +118,20 @@ footer a{color:var(--accent)}
   <div class="section-label">Quick Start</div>
   <h2>Try It Now</h2>
   <pre><span class="c"># Universal tool call (MCP-style)</span>
-curl -X POST http://defi-mcp.127.0.0.1.nip.io/api/call \
+curl -X POST http://defi-mcp.your-server.example.com/api/call \
   -H "Content-Type: application/json" \
   -d <span class="s">'{"tool":"get_token_price","args":{"ids":["bitcoin","ethereum"]}}'</span>
 
 <span class="c"># REST shortcuts</span>
-curl http://defi-mcp.127.0.0.1.nip.io/api/prices?ids=bitcoin,ethereum
-curl http://defi-mcp.127.0.0.1.nip.io/api/search/pepe
-curl http://defi-mcp.127.0.0.1.nip.io/api/gas/all
-curl http://defi-mcp.127.0.0.1.nip.io/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi
-curl http://defi-mcp.127.0.0.1.nip.io/api/top?limit=10
+curl http://defi-mcp.your-server.example.com/api/prices?ids=bitcoin,ethereum
+curl http://defi-mcp.your-server.example.com/api/search/pepe
+curl http://defi-mcp.your-server.example.com/api/gas/all
+curl http://defi-mcp.your-server.example.com/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi
+curl http://defi-mcp.your-server.example.com/api/top?limit=10
 
 <span class="c"># Python</span>
 import requests
-r = requests.post(<span class="s">"http://defi-mcp.127.0.0.1.nip.io/api/call"</span>,
+r = requests.post(<span class="s">"http://defi-mcp.your-server.example.com/api/call"</span>,
   json={"tool": "get_multichain_gas", "args": {}})
 print(r.json())</pre>
 </section>
@@ -164,7 +164,7 @@ print(r.json())</pre>
 </div>
 
 <footer>
-  <p>Built by Clawdia &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/.well-known/agent.json">agent.json</a> &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/llms.txt">llms.txt</a> &nbsp;|&nbsp; <a href="http://defi-mcp.127.0.0.1.nip.io/health">health</a></p>
+  <p>Built by Clawdia &nbsp;|&nbsp; <a href="http://defi-mcp.your-server.example.com/.well-known/agent.json">agent.json</a> &nbsp;|&nbsp; <a href="http://defi-mcp.your-server.example.com/llms.txt">llms.txt</a> &nbsp;|&nbsp; <a href="http://defi-mcp.your-server.example.com/health">health</a></p>
 </footer>
 </body>
 </html>

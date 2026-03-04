@@ -18,19 +18,19 @@ The server is also hosted as a free REST API. Try these right now:
 
 ```bash
 # Bitcoin & Ethereum prices
-curl "http://defi-mcp.127.0.0.1.nip.io/api/prices?ids=bitcoin,ethereum"
+curl "http://defi-mcp.your-server.example.com/api/prices?ids=bitcoin,ethereum"
 
 # Ethereum gas prices (EIP-1559)
-curl "http://defi-mcp.127.0.0.1.nip.io/api/gas"
+curl "http://defi-mcp.your-server.example.com/api/gas"
 
 # Wallet balance across 6 EVM chains
-curl "http://defi-mcp.127.0.0.1.nip.io/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi"
+curl "http://defi-mcp.your-server.example.com/api/balance/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/multi"
 
 # Top 10 tokens by market cap
-curl "http://defi-mcp.127.0.0.1.nip.io/api/top?limit=10"
+curl "http://defi-mcp.your-server.example.com/api/top?limit=10"
 
 # Solana DEX quote: 1 SOL → USDC via Jupiter
-curl "http://defi-mcp.127.0.0.1.nip.io/api/quote/solana?input_mint=So11111111111111111111111111111111111111112&output_mint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000"
+curl "http://defi-mcp.your-server.example.com/api/quote/solana?input_mint=So11111111111111111111111111111111111111112&output_mint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000000"
 ```
 
 100 free requests/day, no API key needed.
@@ -145,7 +145,7 @@ Once connected, ask your AI naturally:
 
 ## REST API
 
-All 12 tools are also available as a REST API at `http://defi-mcp.127.0.0.1.nip.io`.
+All 12 tools are also available as a REST API at `http://defi-mcp.your-server.example.com`.
 
 | Endpoint | Tool |
 |----------|------|

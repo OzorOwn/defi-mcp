@@ -6,7 +6,7 @@
     "description": "Model Context Protocol server for crypto/DeFi primitives — prices, balances, gas, swap quotes",
     "contact": {
       "name": "DeFi MCP Server",
-      "url": "http://defi-mcp.127.0.0.1.nip.io"
+      "url": "http://defi-mcp.your-server.example.com"
     },
     "license": {
       "name": "Proprietary"
@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "http://defi-mcp.127.0.0.1.nip.io",
+      "url": "http://defi-mcp.your-server.example.com",
       "description": "Production API"
     }
   ],
